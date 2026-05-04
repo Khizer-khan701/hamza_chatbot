@@ -18,8 +18,10 @@ load_dotenv()
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Local FAISS index ka path
-DB_FAISS_PATH = "vectorstore/db_faiss"
+DB_FAISS_PATH = os.path.join(BASE_DIR, "..", "vectorstore", "db_faiss")
 
 def load_vectorstore():
     try:
