@@ -1,0 +1,15 @@
+fastapi[all]
+uvicorn
+pydantic
+starlette
+python-dotenv
+langchain
+langchain-pinecone
+langchain-core
+langchain-classic
+langchain-xai 
+pypdf 
+faiss-cpu
+langchain-openai
+openai
+langchain-groq
