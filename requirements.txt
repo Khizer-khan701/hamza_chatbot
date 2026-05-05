@@ -2,6 +2,7 @@ fastapi
 uvicorn
 pydantic
 starlette
+itsdangerous
 python-dotenv
 langchain
 langchain-core

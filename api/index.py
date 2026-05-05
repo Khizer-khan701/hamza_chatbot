@@ -1,6 +1,6 @@
 from fastapi import FastAPI,HTTPException
 from pydantic import BaseModel
-from starlette.middleware.sessions import SessionMiddleware
+
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.requests import Request
@@ -15,11 +15,6 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
-)
-
-app.add_middleware(
-    SessionMiddleware,
-    secret_key="abc"
 )
 
 @app.on_event("startup")
