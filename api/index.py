@@ -22,6 +22,11 @@ app.add_middleware(
     secret_key="abc"
 )
 
+@app.on_event("startup")
+def startup_event():
+    vector_store = load_vectorstore()
+    app.state.rag_chain = build_conversational_chain(vector_store)
+
 class Chatbot(BaseModel):
     message: str
 

@@ -209,3 +209,4 @@ __marimo__/
 notebook.ipynb
 env/
 notebook.ipynb
+__pycache__/

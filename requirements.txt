@@ -4,12 +4,9 @@ pydantic
 starlette
 python-dotenv
 langchain
-langchain-pinecone
 langchain-core
-langchain-classic
-langchain-xai 
-pypdf 
+langchain-community
 faiss-cpu
+pypdf 
 langchain-openai
-openai
 langchain-groq
