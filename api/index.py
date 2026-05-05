@@ -42,16 +42,14 @@ def home():
     return {"message": "API running"}
 
 @app.post("/chatbot")
-def chatbot_api(payload:Chatbot,request:Request):
-    message=(payload.message or "").strip()
+def chatbot_api(payload: Chatbot, request: Request):
+    message = (payload.message or "").strip()
     if not message:
-        raise HTTPException(status_code=400,detail="User Query Not Found")
-    chat_history=request.session.get("chat_history",[])
-    chain=get_chain()
-    result,_=run_rag(message,chat_history,chain)
-    chat_history.append({"role":"user","content":message})
-    chat_history.append({"role":"assistant","content":result})
-    if len(chat_history)>20:
-        chat_history=chat_history[-20:]
-    request.session["chat_history"]=chat_history
-    return JSONResponse(status_code=200,content={"response":result})
+        raise HTTPException(status_code=400, detail="User Query Not Found")  
+    try:
+        chat_history = []       
+        chain = get_chain()
+        result, _ = run_rag(message, chat_history, chain)     
+        return JSONResponse(status_code=200, content={"response": result})
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
