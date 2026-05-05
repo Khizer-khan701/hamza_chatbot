@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.requests import Request
-from rag_pipeline import run_rag, build_conversational_chain, load_vectorstore
+from .rag_pipeline import run_rag, build_conversational_chain, load_vectorstore
 
 
 app=FastAPI()
